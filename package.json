@@ -4,7 +4,7 @@
   "description": "puppeteer project",
   "main": "production/puppeteer.ts",
   "scripts": {
-    "test": "npm test",
+    "test": "jest",
     "start": " ts-node production/puppeteer.ts"
   },
   "repository": {
