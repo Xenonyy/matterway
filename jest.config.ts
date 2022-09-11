@@ -2,7 +2,7 @@ import type { Config } from "jest";
 
 const config: Config = {
   verbose: true,
-  preset: "jest-puppeteer",
+  preset: "./preset.js",
 };
 
 export default config;
