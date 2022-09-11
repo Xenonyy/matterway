@@ -1,4 +1,12 @@
 import puppeteer from "puppeteer";
+import prompt from "prompt-sync";
+import { GenreTypes } from "./types/genreTypes";
+
+// Possible types:
+// fiction, mystery-thriller, historical-fiction, fantasy, romance, science-fiction, horror, humor, nonfiction, memoir-autobiography, history-biography, science-technology, food-cookbooks, graphic-novels-comics, poetry, debut-novel, young-adult-fiction, young-adult-fantasy, childrens, picture-books
+const genre: GenreTypes = prompt({ sigint: true })(
+  "What genre are you interested in? "
+) as GenreTypes;
 
 (async () => {
   // Book Page
@@ -6,9 +14,9 @@ import puppeteer from "puppeteer";
   const bookPage = await browser.newPage();
   await bookPage.setViewport({ width: 1920, height: 1080 });
   await bookPage
-    .goto(`https://www.goodreads.com/choiceawards/best-fiction-books-2020`, {
+    .goto(`https://www.goodreads.com/choiceawards/best-${genre}-books-2020`, {
       waitUntil: "networkidle0",
-      timeout: 10000,
+      timeout: 15000,
     })
     .catch((err: Error) => {
       console.error("The page didn't load. \nError: ", err);
@@ -38,7 +46,7 @@ import puppeteer from "puppeteer";
   await amazon
     .goto("https://www.amazon.com", {
       waitUntil: "networkidle0",
-      timeout: 10000,
+      timeout: 15000,
     })
     .catch((err: Error) => {
       console.error("The page didn't load. \nError: ", err);
