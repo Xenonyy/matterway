@@ -1,0 +1,58 @@
+{
+	"env": {
+		"es6": true,
+		"browser": true
+	},
+	"plugins": [
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "extends": [
+		"plugin:prettier/recommended",
+		"plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
+		"prettier"
+	],
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto"
+			}
+		],
+		"semi-style": "error",
+		"arrow-parens": "off",
+		"import/prefer-default-export": "off",
+		"space-in-parens": "error",
+		"import/exports-last": "error",
+		"import/order": [
+			"error",
+			{
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				},
+				"groups": [
+					["builtin", "external"],
+					["internal", "parent"],
+					["sibling", "index"]
+				]
+			}
+		],
+		"newline-before-return": "error",
+		"semi": "error",
+		"newline-per-chained-call": "error",
+    "no-console": "warn",
+		"newline-after-var": "error",
+    "import/extensions": 0,
+    "func-call-spacing": "warn",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+      "allowExpressions": true
+      }
+    ]
+	}
+}
