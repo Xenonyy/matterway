@@ -24,9 +24,9 @@ describe("Amazon", () => {
 
   test("puts item in the cart", async () => {
     await page
-      .waitForSelector("#add-to-cart-button", { timeout: 2500 })
+      .waitForSelector("input[title='Add to Shopping Cart']", { timeout: 2500 })
       .then(() => {
-        page.click("#add-to-cart-button");
+        page.click("input[title='Add to Shopping Cart']");
       })
       .catch(async (err: Error) => {
         console.error("Not available from Amazon directly. \nError:", err);

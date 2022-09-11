@@ -74,9 +74,9 @@ const genre: GenreTypes = prompt({ sigint: true })(
   await amazon.screenshot({ path: "./src/screenshots/result.png" });
 
   await amazon
-    .waitForSelector("#add-to-cart-button", { timeout: 5000 })
+    .waitForSelector("input[title='Add to Shopping Cart']", { timeout: 5000 })
     .then(async () => {
-      await amazon.click("#add-to-cart-button");
+      await amazon.click("input[title='Add to Shopping Cart']");
       await amazon.screenshot({ path: "./src/screenshots/item.png" });
     })
     .catch(async (err: Error) => {
